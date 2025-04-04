@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -116,8 +116,8 @@ TextureImporter:
         y: 0
         width: 28
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.66, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: player.walk_1
       rect:
         serializedVersion: 2
-        x: 33
+        x: 34
         y: 0
-        width: 31
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 29
+        height: 32
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -158,10 +158,10 @@ TextureImporter:
         serializedVersion: 2
         x: 66
         y: 0
-        width: 28
+        width: 29
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.64, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,12 +178,12 @@ TextureImporter:
       name: player.walk_3
       rect:
         serializedVersion: 2
-        x: 97
+        x: 98
         y: 0
-        width: 28
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 29
+        height: 32
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5793100e0af9cd54cbc0d8eaa0b0663d
     internalID: 0
     vertices: []
     indices: 
@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      player.walk_0: -7836167512280416771
+      player.walk_1: -588815306439985673
+      player.walk_2: 2211713352899121692
+      player.walk_3: -699823801952192996
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

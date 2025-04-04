@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator animator;
     public Rigidbody2D _rb;
     UpdateT _up;
     SpriteRenderer _spriteRenderer;
@@ -12,9 +13,10 @@ public class PlayerController : MonoBehaviour
 
     public float _jumpStrength = 7f;
     public float _playerSpeed = 7f;
-
     [SerializeField] float jumpTime = 0.35f;
     [SerializeField] float jumpMultiplier = 0.2f;
+
+
 
     public Vector2 boxSize;
     public float castDistance;
@@ -56,6 +58,15 @@ public class PlayerController : MonoBehaviour
         if (jumpReleased)
         {
             isJumping = false;
+        }
+
+        if (_rb.linearVelocity.x != 0)
+        {
+            animator.SetTrigger("Running");
+        }
+        else
+        {
+            animator.SetTrigger("Idle");
         }
     }
 
