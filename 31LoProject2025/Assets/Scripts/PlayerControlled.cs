@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     bool jumpHeld;
     bool jumpReleased;
 
-    bool isJumping;
+    [SerializeField] bool isJumping;
     float jumpCounter;
 
     void Start()
@@ -60,11 +60,11 @@ public class PlayerController : MonoBehaviour
             isJumping = false;
         }
 
-        if (_rb.linearVelocity.x != 0)
+        if (_rb.linearVelocity.x != 0 && IsGrounded())
         {
             animator.SetTrigger("Running");
         }
-        else
+        else if (IsGrounded())
         {
             animator.SetTrigger("Idle");
         }
