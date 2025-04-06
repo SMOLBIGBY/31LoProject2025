@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("Idle");
         }
 
-        if (_rb.linearVelocity.y > 0)
+        if (_rb.linearVelocity.y > 2)
         {
             animator.SetBool("Jumping", true);
         }
@@ -78,8 +78,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Jumping", false);
         }
 
-
-        if (_rb.linearVelocity.y < 0)
+        if (_rb.linearVelocity.y < -2 && _rb.linearVelocity.y >= -10)
         {
             animator.SetBool("Falling", true);
         }
@@ -87,6 +86,17 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("Falling", false);
         }
+
+        if (_rb.linearVelocity.y < -10)
+        {
+            animator.SetBool("FastFalling", true);
+        }
+        else
+        {
+            animator.SetBool("FastFalling", false);
+        }
+
+        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, Mathf.Clamp(_rb.linearVelocity.y, -20f, 10f));
     }
 
     void FixedUpdate()
