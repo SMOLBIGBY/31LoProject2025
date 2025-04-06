@@ -68,6 +68,25 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetTrigger("Idle");
         }
+
+        if (_rb.linearVelocity.y > 0)
+        {
+            animator.SetBool("Jumping", true);
+        }
+        else
+        {
+            animator.SetBool("Jumping", false);
+        }
+
+
+        if (_rb.linearVelocity.y < 0)
+        {
+            animator.SetBool("Falling", true);
+        }
+        else
+        {
+            animator.SetBool("Falling", false);
+        }
     }
 
     void FixedUpdate()
