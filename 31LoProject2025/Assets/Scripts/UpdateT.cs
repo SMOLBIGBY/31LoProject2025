@@ -2,21 +2,18 @@ using UnityEngine;
 
 public class UpdateT : MonoBehaviour
 {
-
     public float _playerHealth = 100;
-
     public bool _cutscene = false;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // Pobierz HP z PlayerManager
+        _playerHealth = PlayerManager.Instance.playerHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // Zapisuj HP do PlayerManager na bieżąco
+        PlayerManager.Instance.playerHealth = _playerHealth;
     }
 }

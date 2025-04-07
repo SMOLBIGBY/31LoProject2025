@@ -1,29 +1,25 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; // <-- Dodaj to
 
 public class TutorialDoorScript : MonoBehaviour
 {
-
     [SerializeField] UpdateT _up;
-
     public GameObject Letterprefab;
-
     bool playerInTrigger = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Letterprefab.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (playerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("E key pressed");
+            SceneManager.LoadScene("Level1"); // <-- Zmiana sceny
         }
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
