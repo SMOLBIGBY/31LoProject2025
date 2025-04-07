@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         jumpReleased = Input.GetButtonUp("Jump");
 
         // Start Jump
-        if (jumpPressed && IsGrounded() && !_up._gameOver)
+        if (jumpPressed && IsGrounded() && !_up._cutscene)
         {
             isJumping = true;
             jumpCounter = 0f;
@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // Horizontal movement
-        if (!_up._gameOver)
+        if (!_up._cutscene)
         {
             _rb.linearVelocity = new Vector2(_inputHorizontal * _playerSpeed, _rb.linearVelocity.y);
         }
