@@ -4,16 +4,27 @@ public class UpdateT : MonoBehaviour
 {
     public float _playerHealth = 100;
     public bool _cutscene = false;
+    public static UpdateT Instance;
 
     void Start()
     {
-        // Pobierz HP z PlayerManager
-        _playerHealth = PlayerManager.Instance.playerHealth;
+
     }
 
     void Update()
     {
-        // Zapisuj HP do PlayerManager na bieżąco
-        PlayerManager.Instance.playerHealth = _playerHealth;
+
+    }
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // <- Nie niszcz tego obiektu przy zmianie sceny
+        }
+        else
+        {
+            Destroy(gameObject); // <- Jeśli drugi taki powstanie, usuń go
+        }
     }
 }
