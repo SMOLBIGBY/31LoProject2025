@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Animator animator;
-    public Rigidbody2D _rb;
+    private Animator animator;
+    private Rigidbody2D _rb;
     UpdateT _up;
     SpriteRenderer _spriteRenderer;
 
@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _up = FindFirstObjectByType<UpdateT>();

@@ -1,9 +1,15 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PouseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false; 
-    public GameObject PauseMenuUI; 
+    public GameObject PauseMenuUI;
+
+    private void Start()
+    {
+        PauseMenuUI.SetActive(false);
+    }
 
     void Update()
     {
