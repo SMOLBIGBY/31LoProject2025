@@ -7,7 +7,6 @@ public class zmienne : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-     
         AudioSource.volume = Mathf.Clamp(volume, 0.0f, 1.0f); 
     }
 

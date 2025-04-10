@@ -4019,6 +4019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   _cutscene: 0
+  _pl: {fileID: 0}
 --- !u!4 &2028285202
 Transform:
   m_ObjectHideFlags: 0

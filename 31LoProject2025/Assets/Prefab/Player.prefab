@@ -106,9 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  _currentHealth: 100
-  _cutscene: 0
-  _hpBarImage: {fileID: 0}
+  _currentHealth: 16.6
 --- !u!114 &8069724067934850173
 MonoBehaviour:
   m_ObjectHideFlags: 0

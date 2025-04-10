@@ -3867,8 +3867,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12e8d5e2e35df14caa85ad314c0f333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerHealth: 100
+  health: 100
   _cutscene: 0
+  _pl: {fileID: 1596691272370863277, guid: 0960573f4480eac4d962571a32646237, type: 3}
 --- !u!4 &2028285202
 Transform:
   m_ObjectHideFlags: 0
