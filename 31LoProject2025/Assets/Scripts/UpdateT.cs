@@ -5,12 +5,19 @@ public class UpdateT : MonoBehaviour
 {
     [SerializeField] private int health = 100; 
     public bool _cutscene = false;
-    private void Start()
+
+    [SerializeField] Player _pl;
+
+    void Start()
     {
         
-        health = PlayerPrefs.GetInt("playerHealth", 100);  
-        Debug.Log("Załadowane zdrowie: " + health);
+        _pl._currentHealth = PlayerPrefs.GetFloat("playerHealth", 100f);  
+        Debug.Log("Załadowane zdrowie: " + _pl._currentHealth);
+
+        _pl = FindFirstObjectByType<Player>();
     }
+
+    //Saves the parameters when the game is closed or the scene is changed
 
     private void OnApplicationQuit()
     {
@@ -27,20 +34,15 @@ public class UpdateT : MonoBehaviour
     public void SaveHealth()
     {
 
-        PlayerPrefs.SetInt("playerHealth", health);
+        PlayerPrefs.SetFloat("playerHealth", _pl._currentHealth);
         PlayerPrefs.Save();  
-    }
-
-    public void SetHealth(int newHealth)
-    {
-        health = newHealth;
     }
 
     
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        if (health < 0) health = 0;  
-        Debug.Log("Zaktualizowane zdrowie: " + health);
+        _pl._currentHealth -= damage;
+        if (health < 0) _pl._currentHealth = 0;  
+        Debug.Log("Zaktualizowane zdrowie: " + _pl._currentHealth);
     }
 }

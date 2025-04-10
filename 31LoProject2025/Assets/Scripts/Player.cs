@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     {
         _hpBarImage = FindAnyObjectByType<HealthBar>().gameObject.GetComponent<Image>();
         _currentHealth = _maxHealth;
+
+        _currentHealth = PlayerPrefs.GetFloat("playerHealth", 100f);
     }
 
     void Update()
