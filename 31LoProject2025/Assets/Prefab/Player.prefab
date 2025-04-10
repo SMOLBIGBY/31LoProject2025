@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _currentHealth: 28.5
+  _cutscene: 0
 --- !u!114 &8069724067934850173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,8 +270,8 @@ Camera:
   m_GameObject: {fileID: 2356582738863226020}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.5801887, g: 0.7434486, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -407,9 +408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12e8d5e2e35df14caa85ad314c0f333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  _cutscene: 0
-  _pl: {fileID: 1596691272370863277}
 --- !u!1 &7615340011738865132
 GameObject:
   m_ObjectHideFlags: 0

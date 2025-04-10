@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement; // <-- Dodaj to
 
 public class TutorialDoorScript : MonoBehaviour
 {
-    [SerializeField] UpdateT _up;
     public GameObject Letterprefab;
     bool playerInTrigger = false;
 
@@ -23,7 +22,7 @@ public class TutorialDoorScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !_up._cutscene)
+        if (collision.gameObject.CompareTag("Player") && !collision.GetComponent<Player>()._cutscene)
         {
             Letterprefab.SetActive(true);
             playerInTrigger = true;

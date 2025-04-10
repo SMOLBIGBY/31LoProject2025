@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerController : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody2D _rb;
-    UpdateT _up;
+    Player _player;
     SpriteRenderer _spriteRenderer;
 
     bool facingRight = true;
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _up = FindFirstObjectByType<UpdateT>();
+        _player = FindAnyObjectByType<Player>();
     }
 
     void Update()
@@ -48,7 +49,7 @@ public class PlayerController : MonoBehaviour
         jumpReleased = Input.GetButtonUp("Jump");
 
         // Start Jump
-        if (jumpPressed && IsGrounded() && !_up._cutscene)
+        if (jumpPressed && IsGrounded() && !_player._cutscene)
         {
             isJumping = true;
             jumpCounter = 0f;
@@ -103,7 +104,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // Horizontal movement
-        if (!_up._cutscene)
+        if (!_player._cutscene)
         {
             _rb.linearVelocity = new Vector2(_inputHorizontal * _playerSpeed, _rb.linearVelocity.y);
         }

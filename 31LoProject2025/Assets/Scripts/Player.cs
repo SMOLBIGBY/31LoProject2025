@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public float _currentHealth = 100;
     public static Player Instance;
     private Image _hpBarImage;
+    public bool _cutscene = false;
 
 
     void Start()
@@ -14,7 +15,8 @@ public class Player : MonoBehaviour
         _hpBarImage = FindAnyObjectByType<HealthBar>().gameObject.GetComponent<Image>();
         _currentHealth = _maxHealth;
 
-        _currentHealth = PlayerPrefs.GetFloat("playerHealth", 100f);
+        _currentHealth = PlayerPrefs.GetFloat("playerHealth");
+        Debug.Log("Załadowane zdrowie: " + _currentHealth);
     }
 
     void Update()
@@ -29,16 +31,30 @@ public class Player : MonoBehaviour
             _currentHealth = 0;
         }
     }
-    //void Awake()
-    //{
-    //    if (Instance == null)
-    //    {
-    //        Instance = this;
-    //        DontDestroyOnLoad(gameObject); // <- Nie niszcz tego obiektu przy zmianie sceny
-    //    }
-    //    else
-    //    {
-    //        Destroy(gameObject); // <- Jeśli drugi taki powstanie, usuń go
-    //    }
-    //}
+    private void OnApplicationQuit()
+    {
+
+        SaveHealth();
+    }
+
+    private void OnDisable()
+    {
+
+        SaveHealth();
+    }
+
+    public void SaveHealth()
+    {
+
+        PlayerPrefs.SetFloat("playerHealth", _currentHealth);
+        PlayerPrefs.Save();
+    }
+
+
+    public void TakeDamage(int damage)
+    {
+        _currentHealth -= damage;
+        if (_currentHealth < 0) _currentHealth = 0;
+        Debug.Log("Zaktualizowane zdrowie: " + _currentHealth);
+    }
 }
